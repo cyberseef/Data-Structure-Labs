@@ -1,0 +1,17 @@
+TIME COMPLEXITY FOR MERGE SORT OF WRITEN CODE
+T(n) = 2T(n/2) + O(n)
+1. There are two arrays of size n/2 so the time to merge them will be O(n)
+2. Now the recursions in the tree are log n and time taken is O(n) at each level.
+3. Given that the function is called n times
+Therefore the TIme Complexity is,
+                O(n log n)
+
+TIME COMPLEXITY FOR BUBBLE SORT OF WRITEN CODE
+T(n) = (n-1)*(n-1)
+T(n) = n^2 - 2n+1
+1. The outer loop runs n-1 times annd the inner runs n-1 in worst case.
+2. Given the above calculations and knowing swap function takes constant time the time complexity won't be affected and using the rules for finding Big O removing unnecessary comparisons, we get
+                O(n^2)
+
+COMPARING BOTH TIME COMPLEXITIES
+Time complexity of Merge sort is faster which is O(n log n) making it efficient for large arrays and lists while Bubble Sort is useful for small datasets.
