@@ -1,0 +1,20 @@
+This code defines a class CircularLinkedList which implements a circular linked list data structure. The linked list consists of a series of nodes where each node contains a data element and a pointer to the next node. The CircularLinkedList class has several member functions that allow for insertion, deletion, searching, reversing, sorting, and performing the Josephus problem.
+
+The main function initializes a new CircularLinkedList object and then inserts 10 integer values from 1 to 10. It then displays the contents of the list using the Display() member function. Finally, it calls the Josephus() function with an integer argument of 3.
+
+The CircularLinkedList class has the following member variables:
+
+head: A pointer to the first node in the linked list.
+tail: A pointer to the last node in the linked list.
+size: An integer indicating the number of nodes in the linked list.
+The CircularLinkedList class has the following member functions:
+
+CircularLinkedList(): A constructor that initializes the head, tail, and size variables to NULL, NULL, and 0 respectively.
+Insert(int data): A function that inserts a new node at the end of the linked list with the given data value. If the list is empty, it sets head and tail to the new node, otherwise it adds the new node to the end of the list and updates tail and the next pointer of the last node to point to head.
+Display(): A function that displays the contents of the linked list by traversing the list from head to tail and printing the data element of each node.
+Delete(int data): A function that deletes the first node in the linked list with the given data value. If the node to be deleted is head, it updates head to point to the next node, updates the next pointer of the last node to point to head, and deletes the node. Otherwise, it updates the next pointer of the previous node to point to the next node, and deletes the node.
+Search(int data): A function that searches for the first node in the linked list with the given data value. If the node is found, it prints "Value found", otherwise it prints "Value not found".
+Reverse(): A function that reverses the order of the nodes in the linked list by traversing the list and updating the next pointers of each node to point to the previous node. It also updates head to point to the last node and tail to point to the first node.
+Sort(): A function that sorts the nodes in the linked list in ascending order by traversing the list and comparing the data elements of each node with the data elements of the subsequent nodes. If a node has a greater data element than a subsequent node, the data elements are swapped. This process is repeated until the end of the list is reached.
+Josephus(int k): A function that solves the Josephus problem for the linked list by starting at the first node and repeatedly counting k nodes clockwise around the list, removing the node at the kth position and continuing until only one node remains. The data element of each removed node is printed to the console.
+In the main() function, the CircularLinkedList class is used to create a new list, insert 10 integers, display the list, and perform the Josephus problem with a count of 3. The final remaining node is printed to the console.

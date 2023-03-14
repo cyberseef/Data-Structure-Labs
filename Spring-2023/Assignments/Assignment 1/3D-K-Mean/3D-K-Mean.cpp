@@ -48,49 +48,54 @@ public:
 };
 
 
-void initialcluster(Point* cluster, Point* data) //initial cluster
+void initialcluster(Point* cluster, Point* data)
 {
-    srand(time(0));     //random seed
+    srand(time(0));
     int n = 25;
     int index;
-    for (int i = 0; i < 3; i++)     //3 clusters
+    for (int i = 0; i < 3; i++)
     {
-        index = rand() / 200;       //random index
 
-        cluster[i].x = data[index].x;   //assigning random data points to cluster
-        cluster[i].y = data[index].y;   //assigning random data points to cluster
-        cluster[i].z = data[index].z;   //assigning random data points to cluster
+
+        index = rand() / 200;
+
+
+
+
+        cluster[i].x = data[index].x;
+        cluster[i].y = data[index].y;
+        cluster[i].z = data[index].z;
         n = n + 5;
     }
 
-    cout << "cluster 1 : " << cluster[0].x << "   " << cluster[0].y << "   \n";     //printing initial cluster
+    cout << "cluster 1 : " << cluster[0].x << "   " << cluster[0].y << "   \n";
     cout << "cluster 2 : " << cluster[1].x << "   " << cluster[1].y << "\n";
     cout << "cluster 3 : " << cluster[2].x << "   " << cluster[2].y << "\n";
 }
 
-Point* read_csv(Point* data)            //reading csv file
+Point* read_csv(Point* data)
 {
     string line;
     int i = 0;
-    ifstream file("C:\\Users\\Cyberseef\\Desktop\\Assignment1\\segmented_customers-1.csv");     //file path
+    ifstream file("C:\\Users\\%USERNAME%\\Desktop\\Assignment 1\\3D-K-Mean\\Resources\\segmented_customers-1.csv");
     getline(file, line);
-    while (getline(file, line)) {       //reading line by line
+    while (getline(file, line)) {
         stringstream lineStream(line);
         string bit;
         double x, y,z;
         getline(lineStream, bit, ',');
 
-        getline(lineStream, bit, ',');      //reading next value
+        getline(lineStream, bit, ',');
 
         getline(lineStream, bit, ',');
-        x = stof(bit);      //converting string to float
-        getline(lineStream, bit, ',');      //reading next value
+        x = stof(bit);
+        getline(lineStream, bit, ',');
         y = stof(bit);
 
         getline(lineStream, bit, '\n');
         z = stof(bit);
 
-        data[i].x = x;      //assigning values to data
+        data[i].x = x;
         data[i].y = y;
         data[i].z = z;
         i++;
@@ -107,10 +112,10 @@ Point* read_csv(Point* data)            //reading csv file
 int main()
 {
 
-    Point* data = new Point[200];       //creating array of 200 points
-    Point* cluster = new Point[3];      //creating array of 3 clusters
-    data = read_csv(data);              //reading csv file
-    cluster[0].x = 55.64;               //initial cluster
+    Point* data = new Point[200];
+    Point* cluster = new Point[3];
+    data = read_csv(data);
+    cluster[0].x = 55.64;
     cluster[0].y = 6;
 
     cluster[1].x = 74.12;
@@ -119,7 +124,7 @@ int main()
     cluster[2].x = 38.87;
     cluster[2].y = 15;
 
-    double oldclu1x = cluster[0].x;     //old cluster
+    double oldclu1x = cluster[0].x;
     double oldclu1y = cluster[0].y;
     double oldclu1z = cluster[0].z;
     double oldclu2x = cluster[1].x;
@@ -129,7 +134,7 @@ int main()
     double oldclu3y = cluster[2].y;
     double oldclu3z = cluster[2].z;
 
-    initialcluster(cluster, data);      //initial cluster
+    initialcluster(cluster, data);
 
     do {
 
@@ -230,19 +235,20 @@ int main()
 
 
 
-    } while (cluster[0].x != oldclu1x || cluster[0].y != oldclu1y || cluster[0].z != oldclu1z || cluster[1].x != oldclu2x || cluster[1].y != oldclu2y || cluster[1].z != oldclu2z || cluster[2].x != oldclu3x || cluster[2].y != oldclu3y || cluster[2].z != oldclu3z); //checking if the cluster is same or not
+    } while (cluster[0].x != oldclu1x || cluster[0].y != oldclu1y || cluster[0].z != oldclu1z || cluster[1].x != oldclu2x || cluster[1].y != oldclu2y || cluster[1].z != oldclu2z || cluster[2].x != oldclu3x || cluster[2].y != oldclu3y || cluster[2].z != oldclu3z);
 
 
-    fstream fout;       //writing to csv file
+
+    fstream fout;
 
     // opens an existing csv file or creates a new file.
-    fout.open("C:\\Users\\Cyberseef\\Desktop\\Assignment1\\output.csv", ios::out | ios::app);
+    fout.open("C:\\Users\\%USERNAME%\\Desktop\\Assignment 1\\Output\\output3d.csv", ios::out | ios::app);
 
     ofstream myfile;
-    myfile.open("C:\\Users\\Cyberseef\\Desktop\\Assignment1\\output.csv");
+    myfile.open("C:\\Users\\%USERNAME%\\Desktop\\Assignment 1\\Output\\output3d.csv");
     myfile << "x,y,z,c" << endl;
 
-    for (int i = 0; i < 200; i++) {     //writing to csv file
+    for (int i = 0; i < 200; i++) {
         myfile << data[i].x << "," << data[i].y << "," << data[i].z << "," << data[i].cluster << endl;
     }
     myfile.close();

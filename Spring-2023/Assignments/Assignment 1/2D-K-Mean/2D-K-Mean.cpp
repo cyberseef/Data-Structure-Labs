@@ -47,49 +47,49 @@ public:
 };
 
 
-void initialcluster(Point* cluster, Point* data)        //initial cluster
+void initialcluster(Point* cluster, Point* data)
 {
-    srand(time(0));     //random seed
+    srand(time(0));
     int n = 25;
     int index;
-    for (int i = 0; i < 3; i++)     //3 clusters
+    for (int i = 0; i < 3; i++)
     {
 
 
-        index = rand() / 30;        //random index
+        index = rand() / 30;
 
         
        
        
-        cluster[i].x = data[index].x;       //assigning random data points to cluster
-        cluster[i].y = data[index].y;       //assigning random data points to cluster
-        n = n + 5;          //incrementing index
+        cluster[i].x = data[index].x;
+        cluster[i].y = data[index].y;
+        n = n + 5;
     }
 
-    cout << "cluster 1 : " << cluster[0].x << "   " << cluster[0].y<<"   \n";       //printing initial cluster
+    cout << "cluster 1 : " << cluster[0].x << "   " << cluster[0].y<<"   \n";
     cout << "cluster 2 : " << cluster[1].x << "   " << cluster[1].y<<"\n";
     cout << "cluster 3 : " << cluster[2].x << "   " << cluster[2].y<<"\n";
 }
 
-Point* read_csv(Point* data)        // reading the csv file
+Point* read_csv(Point* data)
 {
     string line;
     int i = 0;
-    ifstream file("C:\\Users\\Cyberseef\\Desktop\\Assignment1\\driver-data.csv");       //reading the file
-    getline(file, line);        //skipping the first line
-    while (getline(file, line)) {       //reading the file line by line
+    ifstream file("C:\\Users\\%USERNAME%\\Desktop\\Assignment 1\\Resources\\driver-data.csv");
+    getline(file, line);
+    while (getline(file, line)) {
         stringstream lineStream(line);
         string bit;
         double x, y;
-        getline(lineStream, bit, ',');      //reading the first column
+        getline(lineStream, bit, ',');
 
-        getline(lineStream, bit, ',');      //reading the second column
-        x = stof(bit);              //converting string to float
-        getline(lineStream, bit, '\n');     //reading the third column
-        y = stof(bit);              //converting string to float
+        getline(lineStream, bit, ',');
+        x = stof(bit);
+        getline(lineStream, bit, '\n');
+        y = stof(bit);
 
-        data[i].x = x;              //assigning values to the array
-        data[i].y = y;              //assigning values to the array
+        data[i].x = x;
+        data[i].y = y;
         i++;
 
 
@@ -218,7 +218,7 @@ int main()
 
 
     ofstream myfile;
-    myfile.open("C:\\Users\\Cyberseef\\Desktop\\Assignment1\\output.csv");
+    myfile.open("C:\\Users\\%USERNAME%\\Desktop\\Assignment 1\\Output\\output2d.csv");
     myfile << "x,y,c" << endl;
 
     for (int i = 0; i < 4000;i++) {

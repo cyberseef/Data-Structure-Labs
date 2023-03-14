@@ -1,0 +1,28 @@
+This code implements a doubly linked list in C++. Here are the step-by-step explanations of the code and functions:
+
+The class DoubleLinkedList is defined with the public member functions:
+Insert(): This function is used to insert a new node into the doubly linked list. It takes an integer value as an input parameter and creates a new node with the input value. If the list is empty, the new node is inserted as the head and tail of the list. Otherwise, the new node is inserted after the current tail node, and the new node becomes the new tail node.
+Search(): This function is used to search for a node with a specific value in the doubly linked list. It takes an integer value as an input parameter and searches for a node with the same value in the list. If found, it prints a message indicating that the value was found; otherwise, it prints a message indicating that the value was not found.
+Remove(): This function is used to remove a node with a specific value from the doubly linked list. It takes an integer value as an input parameter and searches for a node with the same value in the list. If found, it removes the node from the list and updates the head and tail nodes accordingly. If the node to be removed is the head or the tail node, the new head or tail node is updated accordingly.
+UpdateSalary(): This function is used to update the value of a node with a specific value in the doubly linked list. It takes two integer values as input parameters: the first value is the value of the node to be updated, and the second value is the new value to be assigned to the node. It searches for a node with the same value in the list. If found, it updates the value of the node with the new value; otherwise, it prints a message indicating that the value was not found.
+MaximumSalary(): This function is used to find the maximum value in the doubly linked list. It iterates through all the nodes in the list and keeps track of the maximum value found. After iterating through all the nodes, it prints the maximum value found.
+print(): This function is used to print the values of all the nodes in the doubly linked list. It iterates through all the nodes in the list and prints the value of each node.
+In the main function, an instance of the DoubleLinkedList class is created.
+
+Ten nodes are inserted into the doubly linked list using the Insert() function.
+
+The print() function is called to print the values of all the nodes in the list.
+
+The Search() function is called with the value 500 as an input parameter. Since the value 500 is present in the list, the function prints a message indicating that the value was found.
+
+The Remove() function is called with the value 500 as an input parameter. Since the value 500 is present in the list, the function removes the node with the value 500 from the list.
+
+The print() function is called again to print the values of all the nodes in the list after removing the node with the value 500.
+
+The UpdateSalary() function is called with the values 100 and 200 as input parameters. Since the value 100 is present in the list, the function updates the value of the node with the value 100 to 200.
+
+The print() function is called again to print the values of all the nodes in the list after updating the value of the node with the value 100 to 200.
+
+The MaximumSalary() function is called to find the maximum value in the list. It prints the maximum value found, which is 1000.
+
+The program terminates by returning 0.
