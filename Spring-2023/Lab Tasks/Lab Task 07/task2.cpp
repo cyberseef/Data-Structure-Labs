@@ -180,6 +180,6 @@ int main()
     list.Insert(9);
     list.Insert(10);
     list.Display();
-    list.Josephus(3);
+    list.Josephus(4);
     return 0;
 }
